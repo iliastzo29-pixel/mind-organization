@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/logo.png" alt="mind organization · open source developer" width="560"></p>
+
 # Mind Organization
 
 ### Stop starting from zero. Start from a system.
