@@ -1,4 +1,4 @@
-<p align="center"><img src="docs/logo.png" alt="mind organization · open source developer" width="560"></p>
+<p align="center"><img src="docs/logo.png" alt="Mind Organization" width="480"></p>
 
 # Mind Organization
 
