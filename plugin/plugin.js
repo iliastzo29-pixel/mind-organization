@@ -85,6 +85,7 @@ module.exports = class MindOrganization extends Plugin {
     block('mo-prices', async (src, el, ctx) => S.renderPrices(el, S.tables(await read(first(src, ctx.sourcePath)), 'Prices')), (src, ctx) => [first(src, ctx.sourcePath)]);
     block('mo-timeline', async (src, el) => S.renderTimeline(el, S.tables(await read(first(src, 'Road map.md')))), (src) => [first(src, 'Road map.md')]);
     block('mo-team', (src, el, ctx, opts) => S.renderTeam(el, src, opts));
+    block('mo-chat', (src, el) => S.renderChat(el, src));
     block('mo-daily', async (src, el, ctx, opts) => S.renderDaily(el, await read(ctx.sourcePath), opts), (src, ctx) => [ctx.sourcePath]);
     block('mo-economy', async (src, el, ctx, opts) => S.renderEconomy(el, await read(ctx.sourcePath), opts), (src, ctx) => [ctx.sourcePath]);
   }

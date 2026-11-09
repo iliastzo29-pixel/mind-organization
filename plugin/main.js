@@ -1002,7 +1002,28 @@
     h(wrap, 'div', 'mox-ecur', `All amounts in ${cur}. The balance is calculated, never typed by hand.`);
   }
 
-  const api = { tables, kv, logoSVG, renderHeader, renderGoal, renderKnowledge, renderCustomerStats, renderCustomers, renderCompMarquee, renderPrices, renderTimeline, renderTeam, renderDaily, renderEconomy, sectionTitle, customerCounts, competitorLines };
+  // ```mo-chat``` draws the Project Owner chat panel of the Control Room.
+  // Lines "title: …", "sub: …", "placeholder: …"; every other "Name: text" line is one message
+  // ("You:" on the right, everyone else on the left). In the demo it is a sample conversation.
+  function renderChat(el, source) {
+    const lines = String(source || '').split('\n').map((l) => l.trim()).filter(Boolean);
+    const o = {}; const msgs = [];
+    for (const l of lines) {
+      const m = l.match(/^([^:]+):\s*(.*)$/); if (!m) continue;
+      const k = m[1].trim(); const v = m[2].trim();
+      if (/^(title|sub|placeholder)$/i.test(k)) o[k.toLowerCase()] = v; else msgs.push({ who: k, text: v });
+    }
+    const pa = h(el, 'div', 'mox-panel mox-po');
+    const head = h(pa, 'div', 'mox-panel-h');
+    h(head, 'span', null, (o.title || 'Project Owner').toUpperCase());
+    if (o.sub !== '') h(head, 'span', 'mox-panel-sub', '· ' + (o.sub || 'your coordinator'));
+    const log = h(pa, 'div', 'mox-chat');
+    msgs.forEach((r) => { h(log, 'div', 'mox-msg ' + (/^(you|me)$/i.test(r.who) ? 'mox-me' : 'mox-ai'), r.text); });
+    const inp = h(pa, 'div', 'mox-input', o.placeholder || 'Ask your Project Owner…');
+    h(inp, 'span', 'mox-send', '↑');
+  }
+
+  const api = { tables, kv, logoSVG, renderHeader, renderGoal, renderKnowledge, renderCustomerStats, renderCustomers, renderCompMarquee, renderPrices, renderTimeline, renderTeam, renderDaily, renderEconomy, renderChat, sectionTitle, customerCounts, competitorLines };
   root.MindOrgShow = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);
@@ -1094,6 +1115,7 @@ module.exports = class MindOrganization extends Plugin {
     block('mo-prices', async (src, el, ctx) => S.renderPrices(el, S.tables(await read(first(src, ctx.sourcePath)), 'Prices')), (src, ctx) => [first(src, ctx.sourcePath)]);
     block('mo-timeline', async (src, el) => S.renderTimeline(el, S.tables(await read(first(src, 'Road map.md')))), (src) => [first(src, 'Road map.md')]);
     block('mo-team', (src, el, ctx, opts) => S.renderTeam(el, src, opts));
+    block('mo-chat', (src, el) => S.renderChat(el, src));
     block('mo-daily', async (src, el, ctx, opts) => S.renderDaily(el, await read(ctx.sourcePath), opts), (src, ctx) => [ctx.sourcePath]);
     block('mo-economy', async (src, el, ctx, opts) => S.renderEconomy(el, await read(ctx.sourcePath), opts), (src, ctx) => [ctx.sourcePath]);
   }

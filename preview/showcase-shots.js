@@ -51,6 +51,7 @@ document.querySelectorAll('.blk').forEach((el) => {
   else if (t === 'mo-prices') S.renderPrices(el, S.tables(note, 'Prices'));
   else if (t === 'mo-timeline') S.renderTimeline(el, S.tables(NOTES[first(src, 'Road map.md')]), window.TODAY);
   else if (t === 'mo-team') S.renderTeam(el, src, O);
+  else if (t === 'mo-chat') S.renderChat(el, src);
   else if (t === 'mo-daily') S.renderDaily(el, note, O);
   else if (t === 'mo-economy') S.renderEconomy(el, note, O);
 });`;
@@ -87,7 +88,7 @@ const shots = [
     await p.goto('file://' + tmp);
     await p.waitForTimeout(1800);
     const hgt = await p.evaluate(() => document.querySelector('.note').getBoundingClientRect().height);
-    await p.setViewportSize({ width: 1200, height: Math.min(4200, Math.ceil(hgt)) });
+    await p.setViewportSize({ width: 1200, height: Math.min(5000, Math.ceil(hgt)) });
     await p.waitForTimeout(600);
     await p.screenshot({ path: path.join(OUT, s.out) });
     fs.unlinkSync(tmp);

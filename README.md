@@ -211,7 +211,7 @@ You can run the questions again at any time: command palette → **Mind Organiza
 The demo vault is not an empty template. It has the same design as my own vault, filled with invented companies, prices and numbers, so you see how it works before you put in your own:
 
 - **Start page:** the brain in the middle, drawn live in WebGL, and six circles that open Hermes, Projects, My Development, My Economy, My Daily and Design.
-- **Control Room:** a header with particle waves, the goal with a live countdown, next steps, the Decision Log, My Knowledge with its counters, customers and competitors whose logos scroll past, the road map and the team.
+- **Control Room:** a header with particle waves, the Project Owner chat (a sample conversation in the demo), the goal with a live countdown, next steps, the Decision Log, My Knowledge with its counters, customers and competitors whose logos scroll past, the road map and the team.
 - **My Customers:** lists, counters, filters and one card per customer, all drawn from one table.
 - **My Competitors:** logos by country, a price chart and a price table.
 - **My Daily** with the Personal Assistant, and **My Economy** with the Finance Manager.
