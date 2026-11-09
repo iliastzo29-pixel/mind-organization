@@ -1,0 +1,9 @@
+{
+  "id": "mind-organization",
+  "name": "Mind Organization",
+  "version": "0.1.0",
+  "minAppVersion": "1.4.0",
+  "description": "Live blocks for a company run from an Obsidian vault: deadlines, next steps, decision log and competitor tiles, calculated from plain Markdown.",
+  "author": "Ilias Daskalopoulos",
+  "isDesktopOnly": false
+}
