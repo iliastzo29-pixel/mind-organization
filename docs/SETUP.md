@@ -11,7 +11,7 @@ A few questions set up your vault. Nothing leaves this computer. You can change 
 - Your name
 - Country you live and work in (laws and taxes are checked for this country)
 - What do you want to organize?: *Small company / startup*, *Freelancer / self-employed*, *Personal life*, *Studies, research or a creative project*
-- Which AI model will you connect?: *Not yet*, *Claude*, *ChatGPT*, *Gemini*, *A local model*, *Other*
+- Which AI model will you connect?: *Not yet*, *Claude*, *DeepSeek*, *Gemini*, *Grok*, *A local model*, *Other*
 - Folder for your vault
 - Optional: show a live market ticker on the start page (S&P 500, Nasdaq, Bitcoin, gold). It loads a TradingView widget and needs internet.
 
@@ -62,7 +62,7 @@ These rules are written into Rules.md. Every agent reads them first.
 Written into `Setup/AI Interview.md` with the projects you chose. Shown here for all four projects.
 
 
-Give this note to your AI model (Claude, ChatGPT, Gemini or a local model) once it is connected.
+Give this note to your AI model (Claude, DeepSeek, Gemini, Grok or a local model) once it is connected.
 If the model can read this vault, paste only this note. If it cannot, paste this note together with `Setup/Answers.md` and `Rules.md`, and copy its answers back into the notes yourself.
 
 ---

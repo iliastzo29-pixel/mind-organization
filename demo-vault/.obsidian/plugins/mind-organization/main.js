@@ -208,7 +208,7 @@
     { id: 'personal', label: 'Personal life', hint: 'My Daily (routine, goals) and My Economy (income, expenses, savings)' },
     { id: 'study', label: 'Studies, research or a creative project', hint: 'Sources, books, reading notes, knowledge cards' },
   ];
-  const MODELS = ['Not yet', 'Claude', 'ChatGPT', 'Gemini', 'A local model', 'Other'];
+  const MODELS = ['Not yet', 'Claude', 'DeepSeek', 'Gemini', 'Grok', 'A local model', 'Other'];
 
   // Each step: id, title, intro, fields. A step with `when` is shown only if that project was chosen.
   const STEPS = [
@@ -405,7 +405,7 @@
     const R = safe(a.root || 'My Mind Organization');
     const out = [];
     out.push('# AI interview: finish setting up my vault', '');
-    out.push('Give this note to your AI model (' + (a.model && a.model !== 'Not yet' ? a.model : 'Claude, ChatGPT, Gemini or a local model') + ') once it is connected.');
+    out.push('Give this note to your AI model (' + (a.model && a.model !== 'Not yet' ? a.model : 'Claude, DeepSeek, Gemini, Grok or a local model') + ') once it is connected.');
     out.push('If the model can read this vault, paste only this note. If it cannot, paste this note together with `Setup/Answers.md` and `Rules.md`, and copy its answers back into the notes yourself.', '');
     out.push('---', '');
     out.push(`You are the setup interviewer for my Mind Organization vault. My name is ${clean(a.name)}. I live and work in ${clean(a.country) || 'my country'}.`);
